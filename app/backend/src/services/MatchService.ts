@@ -10,7 +10,6 @@ interface matchAttribute {
 }
 
 export default class MatchService {
-  static findAll: any;
   public static async getAll(trueOrFalse: string): Promise<Match[]> {
     if (trueOrFalse) {
       const boolOptions = trueOrFalse === 'true' || 'false';

@@ -16,7 +16,8 @@ export default class validToken {
       const tokenValidate = jwt.verify(authorization, process.env.JWT_SECRET as string);
       req.body.user = tokenValidate;
       return next();
-    } catch (error: any) {
+    } catch (error) {
+      if (error instanceof Error) { console.log(error.message); }
       return res.status(401).json({ message: 'Token must be a valid token' });
     }
   }
